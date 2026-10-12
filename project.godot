@@ -19,7 +19,7 @@ config/icon="res://icon.png"
 
 Global="*res://Global.tscn"
 DebugOverlay="*res://Debug/DebugOverlay.gd"
-A2G="*res://A2G/A2GClient.gd"
+A2G="*res://addons/a2g/a2g_client.gd"
 LangoA2G="*res://A2G/LangoA2G.gd"
 
 [display]
@@ -137,3 +137,7 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/canvas_textures/default_texture_filter=0
 vram_compression/import_etc=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/a2g/plugin.cfg")
