@@ -1,3 +1,46 @@
+# Lango with A2G (Godot 4)
+
+This is a fork of [Lango_GodotRPG](https://github.com/Delta12Studio/Lango_GodotRPG) by Delta12 Studio, converted to **Godot 4.7** and integrated with the [Agent2Game (A2G) protocol](https://agent2game.org): the bees, bats and boss can ask an AI model what to do next, while their original state machines stay in place and take over whenever there is no valid decision.
+
+The original Godot 3 code is kept in the [`godot3`](../../tree/godot3) branch.
+
+## What A2G adds
+
+- `a2g_manifest.json`: the world, scopes per level type, the boss profile, entity types, events and cache rules.
+- `A2G/A2GClient.gd`: the [A2G SDK for Godot](https://github.com/agent2game/a2g-sdk-godot) (game-agnostic).
+- `A2G/LangoA2G.gd`: the Lango adapter (what enemies observe, which actions are legal, how to run them).
+- One `A2G.execute(self, delta)` call at the top of each enemy's physics step; the original AI runs whenever it returns `false`.
+- `Debug/`: an in-game debug panel and enemy labels, plus headless tests.
+
+A full walkthrough with messages on the wire is on [agent2game.org/examples/lango](https://agent2game.org/examples/lango/).
+
+## Run
+
+1. Open the project in Godot 4.7.
+2. Start an A2G decision service on `http://127.0.0.1:8787` (the reference service is not public yet).
+3. Run the game. AI control is off by default; turn it on in the debug panel (`~`) or start with `-- --a2g-ai`.
+
+Without a service the game plays exactly like the original, on its native AI.
+
+## Controls
+
+| Key | Action |
+| --- | --- |
+| WASD / arrows | Move |
+| J / Space | Attack |
+| K | Roll |
+| I | Inventory |
+| Esc | Menu |
+| `~` | Debug panel: switch native AI / A2G, enemy labels, test options |
+
+## Credits
+
+Game, art and code by Delta12 Studio. Intro music by Dark Reaven Music. Thanks to waffle, the HeartBeast YouTube channel and dadivepesce.com, as credited by the original project below. The Godot 4 conversion and the A2G integration are by agent2game.
+
+---
+
+The original README follows.
+
 # Lango_GodotRPG
 
 Lango is a simple and open source project of an RPG game in the style of the Legendary Legends of Zelda, 

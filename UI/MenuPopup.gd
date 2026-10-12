@@ -1,32 +1,32 @@
-extends Popup
+extends Control
 
 var already_paused
 var selected_menu
 
 func change_menu_color():
-	$Resume.color              = Color.gray
-	$Restart.color             = Color.gray
-	$Save.color                = Color.gray
-	$Load.color                = Color.gray
-	$MusicOn.color             = Color.gray
-	$MusicOff.color            = Color.gray
-	$ShowCredits.color         = Color.gray
+	$Resume.color              = Color.GRAY
+	$Restart.color             = Color.GRAY
+	$Save.color                = Color.GRAY
+	$Load.color                = Color.GRAY
+	$MusicOn.color             = Color.GRAY
+	$MusicOff.color            = Color.GRAY
+	$ShowCredits.color         = Color.GRAY
 
 	match selected_menu:
 		0:
-			$Resume.color      = Color.greenyellow
+			$Resume.color      = Color.GREEN_YELLOW
 		1:
-			$Restart.color     = Color.greenyellow
+			$Restart.color     = Color.GREEN_YELLOW
 		2:
-			$Save.color        = Color.greenyellow
+			$Save.color        = Color.GREEN_YELLOW
 		3:
-			$Load.color        = Color.greenyellow
+			$Load.color        = Color.GREEN_YELLOW
 		4:
-			$MusicOn.color     = Color.greenyellow
+			$MusicOn.color     = Color.GREEN_YELLOW
 		5:
-			$MusicOff.color    = Color.greenyellow
+			$MusicOff.color    = Color.GREEN_YELLOW
 		6:
-			$ShowCredits.color = Color.greenyellow
+			$ShowCredits.color = Color.GREEN_YELLOW
 
 func resume_restart_quit():
 	match selected_menu:
@@ -63,7 +63,7 @@ func resume_restart_quit():
 		6:
 			#Show Credits
 # warning-ignore:return_value_discarded
-			get_tree().change_scene("res://UI/Credits.tscn")
+			get_tree().call_deferred("change_scene_to_file", "res://UI/Credits.tscn")
 
 func _input(_event):
 	if not visible:
@@ -75,7 +75,7 @@ func _input(_event):
 			selected_menu       = 0
 			change_menu_color()
 			# Show popup
-			popup()
+			show()
 	else:
 		if Input.is_action_just_pressed("ui_menu"):
 			# Resume game
@@ -95,5 +95,5 @@ func _input(_event):
 		elif Input.is_action_just_pressed("ui_attack"):
 			resume_restart_quit()
 		elif _event is InputEventKey:
-			if _event.scancode == KEY_ENTER:
+			if _event.keycode == KEY_ENTER:
 				resume_restart_quit()

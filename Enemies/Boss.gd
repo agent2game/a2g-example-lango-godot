@@ -1,22 +1,21 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 const EnemyDeathEffect          = preload("res://Effects/EnemyDeathEffect.tscn")
 const Drop                      = preload("res://World/Item.tscn")
 const Bee                       = preload("res://Enemies/Bee.tscn")
 
-export var ACCELERATION         = 300
-export var MAX_SPEED            = 75
-export var FRICTION             = 200
-export var WANDER_TARGET_RANGE  = 4
-export var HEALTH               = 50
+@export var ACCELERATION         = 300
+@export var MAX_SPEED            = 75
+@export var FRICTION             = 200
+@export var WANDER_TARGET_RANGE  = 4
+@export var HEALTH               = 50.0
 
-onready var playerDetectionZone = $PlayerDetectionZone
-onready var wanderController    = $WanderController
-onready var animationPlayer     = $AnimationPlayer
-onready var hurtbox             = $HurtBox
-onready var sprite              = $AnimatedSprite
+@onready var playerDetectionZone = $PlayerDetectionZone
+@onready var wanderController    = $WanderController
+@onready var animationPlayer     = $AnimationPlayer
+@onready var hurtbox             = $HurtBox
+@onready var sprite              = $AnimatedSprite2D
 
-var velocity                    = Vector2.ZERO
 var knockback                   = Vector2.ZERO
 var rng                         = RandomNumberGenerator.new()
 var dead                        = false
@@ -28,15 +27,23 @@ var state = CHASE
 signal boss_is_dead
 
 func _ready():
+	LangoA2G.track(self)
 	state = pick_random_state([IDLE, WANDER])
 
 	# warning-ignore:return_value_discarded
-	self.connect("boss_is_dead", get_parent().get_parent(), "drop_key")
+	self.connect("boss_is_dead", Callable(get_parent().get_parent(), "drop_key"))
 
 func _physics_process(delta):
 
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
-	knockback = move_and_slide(knockback)
+	var own_velocity = velocity
+	velocity = knockback
+	move_and_slide()
+	knockback = velocity
+	velocity = own_velocity
+
+	if A2G.execute(self, delta):
+		return
 
 	match state:
 		
@@ -60,11 +67,11 @@ func _physics_process(delta):
 			else:
 				state = IDLE
 				
-	velocity = move_and_slide(velocity)
+	move_and_slide()
 
 func update_wander():
 	state = pick_random_state([IDLE, WANDER])
-	wanderController.start_wander_timer(rand_range(1, 3))
+	wanderController.start_wander_timer(randf_range(1, 3))
 
 func accelerate_towards_point(point, delta):
 	var direction = global_position.direction_to(point)
@@ -77,7 +84,7 @@ func seek_player():
 		state = CHASE
 
 func _on_HurtBox_area_entered(area):
-	HEALTH = HEALTH - area.damage
+	HEALTH = maxf(0.0, snappedf(HEALTH - area.damage * DebugOverlay.damage_multiplier, 0.000001))
 	if HEALTH > 0:
 		knockback = area.knockback_vector * 120
 		hurtbox.create_hit_effect()
@@ -86,7 +93,7 @@ func _on_HurtBox_area_entered(area):
 	if HEALTH <= 0:
 		dead = true
 		queue_free()
-		var enemyDeathEffect = EnemyDeathEffect.instance()
+		var enemyDeathEffect = EnemyDeathEffect.instantiate()
 		get_parent().add_child(enemyDeathEffect)
 		enemyDeathEffect.global_position = global_position
 
@@ -102,14 +109,15 @@ func _on_HurtBox_invincibility_ended():
 
 func _on_HurtBox_area_exited(_area):
 	if dead == true:
-		for x in rand_range(15,30):
-			var drop = Drop.instance()
+		for x in randf_range(15,30):
+			var drop = Drop.instantiate()
 			drop.type = 2
-			get_parent().add_child(drop)
-			drop.global_position = global_position + Vector2(rand_range(-16,16),rand_range(-16,16))
+			get_parent().add_child.call_deferred(drop)
+			drop.global_position = global_position + Vector2(randf_range(-16,16),randf_range(-16,16))
 			emit_signal("boss_is_dead")
 
 func _on_Timer_timeout():
-	var bee = Bee.instance()
+	var bee = Bee.instantiate()
 	get_parent().add_child(bee)
 	bee.position = position
+	LangoA2G.link(bee, self)

@@ -17,21 +17,21 @@ func _ready():
 
 ######################## Signal connection with Level Levels.gd ###
 # warning-ignore:return_value_discarded
-	self.connect("transform_Legan", $"..".get_parent().get_parent(), "_on_transform_Legan")
+	self.connect("transform_Legan", Callable($"..".get_parent().get_parent(), "_on_transform_Legan"))
 # warning-ignore:return_value_discarded
-	self.connect("transform_Ledi", $"..".get_parent().get_parent(), "_on_transform_Ledi")
+	self.connect("transform_Ledi", Callable($"..".get_parent().get_parent(), "_on_transform_Ledi"))
 # warning-ignore:return_value_discarded
-	self.connect("transform_Lyu", $"..".get_parent().get_parent(), "_on_transform_Lyu")
+	self.connect("transform_Lyu", Callable($"..".get_parent().get_parent(), "_on_transform_Lyu"))
 # warning-ignore:return_value_discarded
-	self.connect("transform_Player", $"..".get_parent().get_parent(), "_on_transform_Player")
+	self.connect("transform_Player", Callable($"..".get_parent().get_parent(), "_on_transform_Player"))
 # warning-ignore:return_value_discarded
-	self.connect("bomb", $"..".get_parent().get_parent(), "_on_bomb")
+	self.connect("bomb", Callable($"..".get_parent().get_parent(), "_on_bomb"))
 # warning-ignore:return_value_discarded
-	self.connect("reg_hp", Global, "_on_reg_hp")
+	self.connect("reg_hp", Callable(Global, "_on_reg_hp"))
 # warning-ignore:return_value_discarded
-	self.connect("repellent", Global, "_on_repellent")
+	self.connect("repellent", Callable(Global, "_on_repellent"))
 # warning-ignore:return_value_discarded
-	self.connect("update_mana", Global,"_on_update_status")
+	self.connect("update_mana", Callable(Global, "_on_update_status"))
 
 ###################################################################
 func _update_items():
@@ -233,7 +233,7 @@ func _use_item():
 					$Player/Player.animation = "Legan"
 					$Player/Label.text = "Legan"
 					emit_signal("transform_Legan")
-					$Box2.color = Color.red
+					$Box2.color = Color.RED
 #________________________________________________________ Axe
 		2:
 			if $Box3/Axe.visible == true:
@@ -248,7 +248,7 @@ func _use_item():
 					$Player/Label.text = "Lango"
 					if Global.player != "Player":
 						emit_signal("transform_Player")
-					$Box3.color = Color.red
+					$Box3.color = Color.RED
 					Global.axe_equipped = true
 					Global.pickaxe_equipped = false
 #________________________________________________________ Wood
@@ -282,7 +282,7 @@ func _use_item():
 					$Player/Player.animation = "Lyu"
 					$Player/Label.text = "Lyu"
 					emit_signal("transform_Lyu")
-					$Box7.color = Color.red
+					$Box7.color = Color.RED
 					if Global.Mpotion > 0:
 						Global.Mpotion =- 1
 						Global.mana = 100
@@ -299,7 +299,7 @@ func _use_item():
 					$Player/Player.animation = "Ledi"
 					$Player/Label.text = "Ledi"
 					emit_signal("transform_Ledi")
-					$Box8.color = Color.red
+					$Box8.color = Color.RED
 #_______________________________________________________ Pickaxe
 		8:
 			if $Box9/Pickaxe.visible == true:
@@ -314,7 +314,7 @@ func _use_item():
 					$Player/Label.text = "Lango"
 					if Global.player != "Player":
 						emit_signal("transform_Player")
-					$Box9.color = Color.red
+					$Box9.color = Color.RED
 					Global.pickaxe_equipped = true
 					Global.axe_equipped = false
 #_______________________________________________________ Stones

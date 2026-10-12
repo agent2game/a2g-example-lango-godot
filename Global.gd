@@ -1,8 +1,8 @@
 extends Node
 
-export(int) var max_health = 5 setget set_max_health
-var health           = max_health setget set_health
-var health_bar       = 0 setget set_health_bar
+@export var max_health: int = 5: set = set_max_health
+var health: float    = max_health: set = set_health
+var health_bar       = 0: set = set_health_bar
 
 var direction        = Vector2.ZERO
 var player           = "Player"
@@ -69,7 +69,7 @@ func set_max_health(value):
 	emit_signal("max_health_changed", max_health)
 
 func set_health(value):
-	health = value
+	health = clampf(value, 0.0, max_health)
 	emit_signal("health_changed", health)
 	if health <= 0:
 		emit_signal("no_health")
@@ -83,7 +83,7 @@ func _on_reg_hp():
 	if health < max_health:
 		while health < max_health:
 			if health_bar < 100:
-				yield(get_tree().create_timer(1),"timeout")
+				await get_tree().create_timer(1).timeout
 				health_bar += 20
 				emit_signal("health_bar_size", health_bar)
 			else:
@@ -102,7 +102,7 @@ func _on_repellent():
 
 func _countdown():
 	while timer > 0:
-		yield(get_tree().create_timer(1 , false),"timeout")
+		await get_tree().create_timer(1 , false).timeout
 		timer -= 1
 		if repellent == true:
 			emit_signal("repellent_time")
@@ -161,20 +161,15 @@ func save_game():
 }
 
 #_________________________________________________________________
-	var file = File.new()
-	file.open("user://savegame.json", File.WRITE)
-	var json = to_json(data)
-	file.store_line(json)
+	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
+	file.store_line(JSON.stringify(data))
 	file.close()
 
 ######################################################### Load ###
 func load_game():
 
-	var file = File.new()
-	if file.file_exists("user://savegame.json"):
-		file.open("user://savegame.json", File.READ)
-		data = parse_json(file.get_as_text())
-		file.close()
+	if FileAccess.file_exists("user://savegame.json"):
+		data = JSON.parse_string(FileAccess.get_file_as_string("user://savegame.json"))
 #_________________________________________________________________
 		current_level    = data.current_level
 		from             = data.from
@@ -184,18 +179,18 @@ func load_game():
 		chest            = data.chest
 		pickaxe_equipped = data.pickaxe_equipped
 		quest_status     = int(data.quest_status)
-		max_health       = data.max_health
-		health           = data.health
+		max_health       = int(data.max_health)
+		health           = float(data.health)
 		player           = data.player
 		visited          = data.visited
-		honeycombs       = data.honeycombs
-		gem              = data.gem
-		wood             = data.wood
-		stone            = data.stone
-		Hpotion          = data.Hpotion
-		Mpotion          = data.Mpotion
-		Rpotion          = data.Rpotion
-		bomb             = data.bomb
+		honeycombs       = int(data.honeycombs)
+		gem              = int(data.gem)
+		wood             = int(data.wood)
+		stone            = int(data.stone)
+		Hpotion          = int(data.Hpotion)
+		Mpotion          = int(data.Mpotion)
+		Rpotion          = int(data.Rpotion)
+		bomb             = int(data.bomb)
 		map              = data.map
 		Cacilda          = data.Cacilda
 		axe              = data.axe
@@ -207,13 +202,13 @@ func load_game():
 #_________________________________________________________________
 		if not current_level in dangeons:
 			# warning-ignore:return_value_discarded
-			get_tree().change_scene("res://Levels/" + current_level + ".tscn")
+			get_tree().call_deferred("change_scene_to_file", "res://Levels/" + current_level + ".tscn")
 		else:
 			stop_music()
 			current_level = "CaveLevel2"
 			from          = null
 			# warning-ignore:return_value_discarded
-			get_tree().change_scene("res://Levels/" + current_level + ".tscn")
+			get_tree().call_deferred("change_scene_to_file", "res://Levels/" + current_level + ".tscn")
 			play_music()
 		get_tree().paused = false
 
@@ -251,4 +246,4 @@ func reset():
 	pickaxe          = "empty"
 #_________________________________________________________________
 	# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://UI/FirstMenu.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://UI/FirstMenu.tscn")

@@ -1,13 +1,13 @@
 extends StaticBody2D
 
-onready var cave = preload("res://World/DesertCave.png")
+@onready var cave = preload("res://World/DesertCave.png")
 enum level { CaveLevel1, CaveLevel2 }
-export(level) var level_type = level.CaveLevel1
+@export var level_type: level = level.CaveLevel1
 
 func _ready():
 	_cave_was_opened()
 	if get_parent().name == "Level1":
-		$Sprite.texture = cave
+		$Sprite2D.texture = cave
 
 func _opened_cave():
 	$AnimationPlayer.play("OpenCave")
@@ -41,7 +41,7 @@ func _on_Area2D_body_entered(_body):
 	#print("Came from " + Global.from, " and go to " + Global.from + "Pos" + " on " + self.name + " Level")
 # warning-ignore:return_value_discarded
 	if level_type == level.CaveLevel1:
-		get_tree().change_scene("res://Levels/CaveLevel1.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://Levels/CaveLevel1.tscn")
 	if level_type == level.CaveLevel2:
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://Levels/CaveLevel2.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://Levels/CaveLevel2.tscn")

@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 var Honeycombs = false   #The Player finished the Quest?
 var Stones
@@ -12,7 +12,7 @@ func _ready():
 	_update_quest()
 	dialoguePopup = get_tree().root.get_node("NPCInsideHouse/DialoguePopup")
 # warning-ignore:return_value_discarded
-	self.connect("update_status", Global,"_on_update_status")
+	self.connect("update_status", Callable(Global, "_on_update_status"))
 
 func _update_quest():
 ############### Check if you have the items amount ################# 
@@ -25,7 +25,7 @@ func _update_quest():
 
 func talk(answer = ""):
 	# Set NPC's animation to "talk"
-	$AnimatedSprite.play("Talk")
+	$AnimatedSprite2D.play("Talk")
 	# Set dialoguePopup npc to npc
 	dialoguePopup.npc = self
 	dialoguePopup.npc_name = "Bearnardo"
@@ -65,13 +65,13 @@ func talk(answer = ""):
 					_update_quest()
 					# Close dialogue popup
 					dialoguePopup.close()
-					$AnimatedSprite.play("Idle")
+					$AnimatedSprite2D.play("Idle")
 				3:
 					# Update dialogue tree state
 					Global.dialogue_state = 0
 					# Close dialogue popup
 					dialoguePopup.close()
-					$AnimatedSprite.play("Idle")
+					$AnimatedSprite2D.play("Idle")
 
 		Global.QuestStatus.STARTED:
 			match Global.dialogue_state:
@@ -106,7 +106,7 @@ func talk(answer = ""):
 					Global.quest_status = Global.QuestStatus.COMPLETED
 					# Close dialogue popup
 					dialoguePopup.close()
-					$AnimatedSprite.play("Idle")
+					$AnimatedSprite2D.play("Idle")
 					Global.honeycombs = Global.honeycombs - 15
 					Global.gem = Global.gem + 1000
 					Global.bomb = Global.bomb + 1
@@ -114,7 +114,7 @@ func talk(answer = ""):
 				3:
 					Global.dialogue_state = 0
 					dialoguePopup.close()
-					$AnimatedSprite.play("Idle")
+					$AnimatedSprite2D.play("Idle")
 
 		Global.QuestStatus.COMPLETED:
 			match Global.dialogue_state:
@@ -140,11 +140,11 @@ func talk(answer = ""):
 					Global.quest_status = Global.QuestStatus.SECOND_STARTED
 					_update_quest()
 					dialoguePopup.close()
-					$AnimatedSprite.play("Idle")
+					$AnimatedSprite2D.play("Idle")
 				3:
 					Global.dialogue_state = 0
 					dialoguePopup.close()
-					$AnimatedSprite.play("Idle")
+					$AnimatedSprite2D.play("Idle")
 
 		Global.QuestStatus.SECOND_STARTED:
 			match Global.dialogue_state:
@@ -171,7 +171,7 @@ func talk(answer = ""):
 					Global.dialogue_state = 0
 					Global.quest_status = Global.QuestStatus.SECOND_COMPLETED
 					dialoguePopup.close()
-					$AnimatedSprite.play("Idle")
+					$AnimatedSprite2D.play("Idle")
 					Global.stone = Global.stone - 20
 					Global.gem = Global.gem + 1000
 					Global.Hpotion = Global.Hpotion + 5
@@ -179,7 +179,7 @@ func talk(answer = ""):
 				3:
 					Global.dialogue_state = 0
 					dialoguePopup.close()
-					$AnimatedSprite.play("Idle")
+					$AnimatedSprite2D.play("Idle")
 
 		Global.QuestStatus.SECOND_COMPLETED:
 			match Global.dialogue_state:
@@ -205,11 +205,11 @@ func talk(answer = ""):
 					Global.quest_status = Global.QuestStatus.THIRD_STARTED
 					_update_quest()
 					dialoguePopup.close()
-					$AnimatedSprite.play("Idle")
+					$AnimatedSprite2D.play("Idle")
 				3:
 					Global.dialogue_state = 0
 					dialoguePopup.close()
-					$AnimatedSprite.play("Idle")
+					$AnimatedSprite2D.play("Idle")
 
 		Global.QuestStatus.THIRD_STARTED:
 			match Global.dialogue_state:
@@ -236,7 +236,7 @@ func talk(answer = ""):
 					Global.dialogue_state = 0
 					Global.quest_status = Global.QuestStatus.NOT_STARTED
 					dialoguePopup.close()
-					$AnimatedSprite.play("Idle")
+					$AnimatedSprite2D.play("Idle")
 					Global.wood = Global.wood - 30
 					Global.gem = Global.gem + 1000
 					Global.Mpotion = Global.Mpotion + 5
@@ -248,7 +248,7 @@ func talk(answer = ""):
 				3:
 					Global.dialogue_state = 0
 					dialoguePopup.close()
-					$AnimatedSprite.play("Idle")
+					$AnimatedSprite2D.play("Idle")
 
 func _input(_event):
 	if Input.is_action_just_pressed("ui_attack") and can_talk == true:

@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://World/Wood.png" type="Texture" id=1]
+[ext_resource path="res://World/Wood.png" type="Texture2D" id=1]
 [ext_resource path="res://Music and Sounds/Item.ogg" type="AudioStream" id=2]
 [ext_resource path="res://World/Wood.gd" type="Script" id=3]
 
-[node name="Wood" type="Sprite"]
+[node name="Wood" type="Sprite2D"]
 texture = ExtResource( 1 )
 script = ExtResource( 3 )
 
@@ -13,7 +13,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PoolVector2Array( -6.99997, 1.00001, -6.99997, 5.00001, -4.99997, 7.00001, -0.999969, 7.00001, 8.00003, -1.99999, 8.00003, -5.99999, 6.00003, -7.99999, 2.00003, -7.99999 )
+polygon = PackedVector2Array( -6.99997, 1.00001, -6.99997, 5.00001, -4.99997, 7.00001, -0.999969, 7.00001, 8.00003, -1.99999, 8.00003, -5.99999, 6.00003, -7.99999, 2.00003, -7.99999 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )

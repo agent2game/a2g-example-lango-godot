@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Rock.ogg-871d80a76d99eb36266287d5bad72ab2.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bnf6hlept2ond"
+path="res://.godot/imported/Rock.ogg-871d80a76d99eb36266287d5bad72ab2.oggvorbisstr"
 
 [deps]
 
 source_file="res://Music and Sounds/Rock.ogg"
-dest_files=[ "res://.import/Rock.ogg-871d80a76d99eb36266287d5bad72ab2.oggstr" ]
+dest_files=["res://.godot/imported/Rock.ogg-871d80a76d99eb36266287d5bad72ab2.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

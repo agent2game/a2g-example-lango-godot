@@ -1,12 +1,12 @@
 extends StaticBody2D
 
 enum chest { CLOSED, OPEN, EMPTY }
-export(chest) var chest_status = chest.CLOSED
+@export var chest_status: chest = chest.CLOSED
 enum chest_style { FIXED, RANDOM }
-export(chest_style) var chest_drop_type = chest_style.FIXED
+@export var chest_drop_type: chest_style = chest_style.FIXED
 enum drop { GEM, HEART, BIG_HEART }
-export(drop) var drop_type = drop.GEM
-export var gems_amount = 20
+@export var drop_type: drop = drop.GEM
+@export var gems_amount = 20
 var can_open = false
 var can_take = false
 
@@ -14,13 +14,13 @@ signal update_items
 
 func _ready():
 # warning-ignore:return_value_discarded
-	self.connect("update_items", Global, "_on_update_status")
+	self.connect("update_items", Callable(Global, "_on_update_status"))
 	_close()
 	_vanish()
 
 func _open():
 	$AnimationPlayer.play("Open")
-	yield($AnimationPlayer, "animation_finished")
+	await $AnimationPlayer.animation_finished
 	chest_status = chest.OPEN
 	_drop()
 
@@ -41,7 +41,7 @@ func _drop():
 	if chest_drop_type == chest_style.RANDOM:
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
-		drop_type = rng.randi() % 2
+		drop_type = (rng.randi() % 2) as drop
 		if drop_type == drop.GEM:
 			$Gem.visible = true
 		elif drop_type == drop.HEART:
@@ -51,21 +51,21 @@ func _take():
 	if drop_type == drop.GEM:
 		$Gem.visible = false
 		$Collected.play()
-		yield(get_tree().create_timer(0.2), "timeout")
+		await get_tree().create_timer(0.2).timeout
 		Global.gem = Global.gem + gems_amount
 		emit_signal("update_items")
 		chest_status = chest.EMPTY
-		yield(get_tree().create_timer(0.3), "timeout")
+		await get_tree().create_timer(0.3).timeout
 		$AnimationPlayer.play("Close")
 		self.modulate = Color(0.8,0.8,0.8,1)
 	elif drop_type == drop.HEART:
 		if Global.health < Global.max_health:
 			Global.health = Global.max_health
 			$Collected.play()
-			yield(get_tree().create_timer(0.2), "timeout")
+			await get_tree().create_timer(0.2).timeout
 			$Heart.visible = false
 			chest_status = chest.EMPTY
-			yield(get_tree().create_timer(0.3), "timeout")
+			await get_tree().create_timer(0.3).timeout
 			$AnimationPlayer.play("Close")
 			self.modulate = Color(0.8,0.8,0.8,1)
 		else:
@@ -76,7 +76,7 @@ func _take():
 		$Collected.play()
 		$Heart.visible = false
 		chest_status = chest.EMPTY
-		yield(get_tree().create_timer(0.3), "timeout")
+		await get_tree().create_timer(0.3).timeout
 		$AnimationPlayer.play("Close")
 		self.modulate = Color(0.8,0.8,0.8,1)
 		var chest_name = str(get_parent().get_parent().get_parent().name) + self.name

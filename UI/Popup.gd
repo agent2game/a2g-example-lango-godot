@@ -1,11 +1,11 @@
-extends Popup
+extends Control
 
 var show_sign = false
 
 func _input(_event):
 	if Input.is_action_just_pressed("ui_attack"):
 		if show_sign == true:
-			popup()
+			show()
 			show_sign = false
 		else:
 			hide()

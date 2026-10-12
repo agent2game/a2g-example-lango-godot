@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/SwordHitBox.gd" type="Script" id=1]
-[ext_resource path="res://Player/Laduke.png" type="Texture" id=2]
+[ext_resource path="res://Player/Laduke.png" type="Texture2D" id=2]
 
-[sub_resource type="CapsuleShape2D" id=87]
+[sub_resource type="RectangleShape2D" id=87]
+size = Vector2( 40, 20 )
 
-[sub_resource type="CapsuleShape2D" id=88]
-radius = 7.10229
-height = 0.0
+[sub_resource type="RectangleShape2D" id=88]
+size = Vector2( 40, 20 )
 
 [sub_resource type="AtlasTexture" id=89]
 atlas = ExtResource( 2 )
@@ -23,14 +23,23 @@ region = Rect2( 32, 0, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=92]
 animations = [ {
-"frames": [ SubResource( 89 ), SubResource( 90 ), SubResource( 91 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource( 89 )
+}, {
+"duration": 1.0,
+"texture": SubResource( 90 )
+}, {
+"duration": 1.0,
+"texture": SubResource( 91 )
+}],
 "loop": true,
 "name": "default",
 "speed": 15.0
 } ]
 
 [node name="SwordHitBox" type="Area2D"]
-collision_layer = 0
+collision_layer = 64
 collision_mask = 8
 script = ExtResource( 1 )
 
@@ -47,7 +56,7 @@ disabled = true
 [node name="Node2d" type="Node2D" parent="Unarmed"]
 visible = false
 
-[node name="Ladu" type="AnimatedSprite" parent="Unarmed/Node2d"]
-frames = SubResource( 92 )
+[node name="Ladu" type="AnimatedSprite2D" parent="Unarmed/Node2d"]
+sprite_frames = SubResource( 92 )
 frame = 1
-playing = true
+autoplay = "default"

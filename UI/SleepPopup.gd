@@ -1,8 +1,8 @@
-extends Popup
+extends Control
 
 var bed
-var ask setget ask_set
-var answers setget answers_set
+var ask : set = ask_set
+var answers : set = answers_set
 
 func _ready():
 	set_process_input(false)
@@ -17,8 +17,8 @@ func answers_set(new_value):
 
 func open():
 	get_tree().paused = true
-	popup()
-	$AnimationPlayer.playback_speed = 60.0 / ask.length()
+	show()
+	$AnimationPlayer.speed_scale = 60.0 / ask.length()
 	$AnimationPlayer.play("ShowAsk")
 
 func close():

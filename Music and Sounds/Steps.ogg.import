@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Steps.ogg-890ce030c07b17cd628d6d1e0c969406.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cg042oeeq2xts"
+path="res://.godot/imported/Steps.ogg-890ce030c07b17cd628d6d1e0c969406.oggvorbisstr"
 
 [deps]
 
 source_file="res://Music and Sounds/Steps.ogg"
-dest_files=[ "res://.import/Steps.ogg-890ce030c07b17cd628d6d1e0c969406.oggstr" ]
+dest_files=["res://.godot/imported/Steps.ogg-890ce030c07b17cd628d6d1e0c969406.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

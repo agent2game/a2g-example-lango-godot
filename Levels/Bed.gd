@@ -18,14 +18,14 @@ func ask(_answer = ""):
 		match _answer:
 			"J":
 				SleepPopup.hide()
-				get_parent().get_node("YSort/Player").visible = false
-				get_parent().get_node("Bed/Sprite").frame     = 1
+				get_parent().get_node("Node2D/Player").visible = false
+				get_parent().get_node("Bed/Sprite2D").frame     = 1
 				get_parent().get_node("HealthUI/HealthUI/AnimationPlayer").play("FadeOut")
-				yield(get_parent().get_node("HealthUI/HealthUI/AnimationPlayer"), "animation_finished")
+				await get_parent().get_node("HealthUI/HealthUI/AnimationPlayer").animation_finished
 				get_parent().get_node("HealthUI/HealthUI/AnimationPlayer").play("FadeIn")
-				yield(get_parent().get_node("HealthUI/HealthUI/AnimationPlayer"), "animation_finished")
-				get_parent().get_node("Bed/Sprite").frame     = 0
-				get_parent().get_node("YSort/Player").visible = true
+				await get_parent().get_node("HealthUI/HealthUI/AnimationPlayer").animation_finished
+				get_parent().get_node("Bed/Sprite2D").frame     = 0
+				get_parent().get_node("Node2D/Player").visible = true
 				if Global.health < Global.max_health:
 					Global.health = Global.max_health
 #				if Global.health < 5:
@@ -45,4 +45,3 @@ func _on_Bed_body_entered(_body):
 func _on_Bed_body_exited(_body):
 	_body.can_attack = true
 	can_ask = false
-

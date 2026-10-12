@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Grass.ogg-7379076410c7f4156f5c0f7d878faeb8.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bv50e474vlqnu"
+path="res://.godot/imported/Grass.ogg-7379076410c7f4156f5c0f7d878faeb8.oggvorbisstr"
 
 [deps]
 
 source_file="res://Music and Sounds/Grass.ogg"
-dest_files=[ "res://.import/Grass.ogg-7379076410c7f4156f5c0f7d878faeb8.oggstr" ]
+dest_files=["res://.godot/imported/Grass.ogg-7379076410c7f4156f5c0f7d878faeb8.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

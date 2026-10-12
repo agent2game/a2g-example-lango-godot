@@ -1,6 +1,6 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-onready var Shop = get_parent().get_node("Shop")
+@onready var Shop = get_parent().get_node("Shop")
 var can_open = false
 
 func _ready():
@@ -19,11 +19,11 @@ func _input(_event):
 
 ############# Polar Dialogue ##############
 func _on_PolarArea_body_entered(_body):
-	$AnimatedSprite.play("Talk")
+	$AnimatedSprite2D.play("Talk")
 	get_parent().get_node("Dialogue").visible = true
 
 func _on_PolarArea_body_exited(_body):
-	$AnimatedSprite.play("Idle")
+	$AnimatedSprite2D.play("Idle")
 	get_parent().get_node("Dialogue").visible = false
 
 ############# Allow Shop to open ##############

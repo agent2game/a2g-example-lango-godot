@@ -1,9 +1,9 @@
-extends Popup
+extends Control
 
 var npc
-var npc_name setget name_set
-var dialogue setget dialogue_set
-var answers setget answers_set
+var npc_name : set = name_set
+var dialogue : set = dialogue_set
+var answers : set = answers_set
 
 func _ready():
 	set_process_input(false)
@@ -22,8 +22,8 @@ func answers_set(new_value):
 	
 func open():
 	get_tree().paused = true
-	popup()
-	$AnimationPlayer.playback_speed = 60.0 / dialogue.length()
+	show()
+	$AnimationPlayer.speed_scale = 60.0 / dialogue.length()
 	$AnimationPlayer.play("ShowDialogue")
 	
 func close():

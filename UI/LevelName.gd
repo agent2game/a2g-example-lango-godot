@@ -2,7 +2,7 @@ extends CanvasLayer
 
 func _show_name():
 	$AnimationPlayer.play("Show")
-	yield( $AnimationPlayer, "animation_finished" )
+	await $AnimationPlayer.animation_finished
 	queue_free()
 
 func _ready():

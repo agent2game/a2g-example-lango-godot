@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Bee.ogg-2e8a78b29b8529c795eb87642206d234.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dr70fa2tra46"
+path="res://.godot/imported/Bee.ogg-2e8a78b29b8529c795eb87642206d234.oggvorbisstr"
 
 [deps]
 
 source_file="res://Music and Sounds/Bee.ogg"
-dest_files=[ "res://.import/Bee.ogg-2e8a78b29b8529c795eb87642206d234.oggstr" ]
+dest_files=["res://.godot/imported/Bee.ogg-2e8a78b29b8529c795eb87642206d234.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

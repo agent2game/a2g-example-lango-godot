@@ -4,23 +4,23 @@ var VC = preload("res://UI/VirtualControl.tscn")
 var selected_menu = 0
 
 func change_menu_color():
-	$New.color = Color.gray
-	$Load.color = Color.gray
-	$Quit.color = Color.gray
+	$New.color = Color.GRAY
+	$Load.color = Color.GRAY
+	$Quit.color = Color.GRAY
 	
 	match selected_menu:
 		0:
-			$New.color = Color.greenyellow
+			$New.color = Color.GREEN_YELLOW
 		1:
-			$Load.color = Color.greenyellow
+			$Load.color = Color.GREEN_YELLOW
 		2:
-			$Quit.color = Color.greenyellow
+			$Quit.color = Color.GREEN_YELLOW
 
 func _ready():
 	change_menu_color()
 #	var canvas = CanvasLayer.new()
 #	add_child(canvas)
-	var control = VC.instance()
+	var control = VC.instantiate()
 	add_child(control)
 
 func _input(_event):
@@ -39,7 +39,7 @@ func _input(_event):
 			0:
 				# New game
 # warning-ignore:return_value_discarded
-				get_tree().change_scene("res://Levels/InsideHouse.tscn")
+				get_tree().call_deferred("change_scene_to_file", "res://Levels/InsideHouse.tscn")
 			1:
 				# Load game
 				Global.load_game()

@@ -1,43 +1,55 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 const EnemyDeathEffect          = preload("res://Effects/EnemyDeathEffect.tscn")
 const Drop                      = preload("res://World/Item.tscn")
 
-onready var hurtbox             = $HurtBox
-onready var bar                 = $Health/Bar
-onready var playerDetectionZone = $PlayerDetectionZone
-onready var wanderController    = $WanderController
-onready var sprite              = $AnimatedSprite
-onready var animationPlayer     = $AnimationPlayer
+@onready var hurtbox             = $HurtBox
+@onready var bar                 = $Health/Bar
+@onready var playerDetectionZone = $PlayerDetectionZone
+@onready var wanderController    = $WanderController
+@onready var sprite              = $AnimatedSprite2D
+@onready var animationPlayer     = $AnimationPlayer
 
-export var ACCELERATION         = 300
-export var MAX_SPEED            = 50
-export var FRICTION             = 200
-export var WANDER_TARGET_RANGE  = 4
-export var HEALTH               = 3
+@export var ACCELERATION         = 300
+@export var MAX_SPEED            = 50
+@export var FRICTION             = 200
+@export var WANDER_TARGET_RANGE  = 4
+@export var HEALTH               = 3.0
+
+var initial_health: float
+var initial_bar_width: float
 
 var rng                         = RandomNumberGenerator.new()
-var velocity                    = Vector2.ZERO
 var knockback                   = Vector2.ZERO
 var dead                        = false
 var my_number
 
 enum enemy { BEE, BAT }
-export(enemy) var enemy_type = enemy.BEE
+@export var enemy_type: enemy = enemy.BEE
 
 enum{ IDLE, WANDER, CHASE }
 var state     = CHASE 
 
 ##############################################################
 func _ready():
+	LangoA2G.track(self)
+	initial_health = HEALTH
+	initial_bar_width = bar.size.x
 	state = pick_random_state([IDLE, WANDER])
 
 func _physics_process(delta):
 
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
-	knockback = move_and_slide(knockback)
+	var own_velocity = velocity
+	velocity = knockback
+	move_and_slide()
+	knockback = velocity
+	velocity = own_velocity
 	_repellent()
 	
+	if A2G.execute(self, delta):
+		return
+
 	match state:
 		
 		IDLE:
@@ -60,11 +72,11 @@ func _physics_process(delta):
 			else:
 				state = IDLE
 				
-	velocity = move_and_slide(velocity)
+	move_and_slide()
 
 func update_wander():
 	state = pick_random_state([IDLE, WANDER])
-	wanderController.start_wander_timer(rand_range(1, 3))
+	wanderController.start_wander_timer(randf_range(1, 3))
 
 func accelerate_towards_point(point, delta):
 	var direction = global_position.direction_to(point)
@@ -80,9 +92,9 @@ func seek_player():
 		$Health.visible = false
 
 func _on_HurtBox_area_entered(area):
-	HEALTH = HEALTH - area.damage
+	HEALTH = maxf(0.0, snappedf(HEALTH - area.damage * DebugOverlay.damage_multiplier, 0.000001))
 	if HEALTH > 0:
-		bar.rect_size.x = bar.rect_size.x - (bar.rect_size.x / HEALTH)
+		bar.size.x = initial_bar_width * HEALTH / initial_health
 		knockback = area.knockback_vector * 120
 		hurtbox.create_hit_effect()
 		hurtbox.start_invincibility(0.4)
@@ -90,7 +102,7 @@ func _on_HurtBox_area_entered(area):
 	if HEALTH <= 0:
 		dead = true
 		queue_free()
-		var enemyDeathEffect = EnemyDeathEffect.instance()
+		var enemyDeathEffect = EnemyDeathEffect.instantiate()
 		get_parent().add_child(enemyDeathEffect)
 		enemyDeathEffect.global_position = global_position
 
@@ -111,14 +123,14 @@ func _on_HurtBox_area_exited(_area):
 		if my_number <= 5:
 			pass
 		else:
-			var drop = Drop.instance()
+			var drop = Drop.instantiate()
 			if enemy_type == enemy.BEE:
 				drop.type = 2
-				get_parent().add_child(drop)
+				get_parent().add_child.call_deferred(drop)
 				drop.position = position
 			elif enemy_type == enemy.BAT:
 				drop.type = rng.randi() % 2
-				get_parent().add_child(drop)
+				get_parent().add_child.call_deferred(drop)
 				drop.position = position
 
 func _repellent():

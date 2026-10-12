@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 enum color { YELLOW, RED, BLUE }
-export(color) var type = color.YELLOW
+@export var type: color = color.YELLOW
 
 func _ready():
 	change_color()
@@ -32,7 +32,7 @@ func _on_Door_body_entered(_body):
 	Global.from = get_parent().name
 	_body.can_move = false
 	$AnimationPlayer.play("OpenDoor")
-	yield($AnimationPlayer, "animation_finished")
+	await $AnimationPlayer.animation_finished
 # warning-ignore:return_value_discarded
-	get_tree().change_scene(("res://Levels/") + (self.name) + (".tscn"))
+	get_tree().call_deferred("change_scene_to_file", ("res://Levels/") + (self.name) + (".tscn"))
 	

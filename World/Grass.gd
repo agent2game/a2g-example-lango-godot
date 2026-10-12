@@ -5,14 +5,14 @@ const Drop         = preload("res://World/Item.tscn")
 var rng            = RandomNumberGenerator.new()
 var my_number
 
-onready var Winter = preload("res://World/WinterGrass.png")
+@onready var Winter = preload("res://World/WinterGrass.png")
 
 func _ready():
 	if get_parent().get_parent().get_parent().name == "Level4":
-		$Sprite.texture = Winter
+		$Sprite2D.texture = Winter
 
 func create_grass_effect():
-	var grassEffect = GrassEffect.instance()
+	var grassEffect = GrassEffect.instantiate()
 	get_parent().add_child(grassEffect)
 	grassEffect.global_position = global_position
 
@@ -24,7 +24,7 @@ func _on_HurtBox_area_exited(_area):
 	rng.randomize()
 	my_number = rng.randi_range(0,10)
 	if my_number <= 5:
-		var drop = Drop.instance()
+		var drop = Drop.instantiate()
 		drop.type = rng.randi() % 2
-		get_parent().add_child(drop)
+		get_parent().add_child.call_deferred(drop)
 		drop.position = position

@@ -1,13 +1,13 @@
 [gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://World/Chest.gd" type="Script" id=1]
-[ext_resource path="res://World/Chest.png" type="Texture" id=2]
+[ext_resource path="res://World/Chest.png" type="Texture2D" id=2]
 [ext_resource path="res://Music and Sounds/Door.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Music and Sounds/Item.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Music and Sounds/Explosion.ogg" type="AudioStream" id=5]
-[ext_resource path="res://World/Heart_sheet.png" type="Texture" id=6]
+[ext_resource path="res://World/Heart_sheet.png" type="Texture2D" id=6]
 [ext_resource path="res://Music and Sounds/Cancel.ogg" type="AudioStream" id=7]
-[ext_resource path="res://World/Gem_sheet.png" type="Texture" id=8]
+[ext_resource path="res://World/Gem_sheet.png" type="Texture2D" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 8 )
@@ -18,14 +18,14 @@ extents = Vector2( 12, 8 )
 resource_name = "Close"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ 1, 0 ]
 }
@@ -41,7 +41,7 @@ tracks/1/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 3 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PackedFloat32Array( 0 )
 }
 tracks/2/type = "audio"
 tracks/2/path = NodePath("AudioStreamPlayer")
@@ -55,21 +55,21 @@ tracks/2/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 5 )
 } ],
-"times": PoolRealArray( 0.2 )
+"times": PackedFloat32Array( 0.2 )
 }
 
 [sub_resource type="Animation" id=4]
 resource_name = "Open"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ 0, 1 ]
 }
@@ -85,7 +85,7 @@ tracks/1/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 3 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PackedFloat32Array( 0 )
 }
 
 [sub_resource type="AtlasTexture" id=5]
@@ -110,7 +110,22 @@ region = Rect2( 64, 0, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource( 5 )
+}, {
+"duration": 1.0,
+"texture": SubResource( 6 )
+}, {
+"duration": 1.0,
+"texture": SubResource( 7 )
+}, {
+"duration": 1.0,
+"texture": SubResource( 8 )
+}, {
+"duration": 1.0,
+"texture": SubResource( 9 )
+}],
 "loop": true,
 "name": "Gem",
 "speed": 5.0
@@ -138,7 +153,22 @@ region = Rect2( 64, 0, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource( 11 )
+}, {
+"duration": 1.0,
+"texture": SubResource( 12 )
+}, {
+"duration": 1.0,
+"texture": SubResource( 13 )
+}, {
+"duration": 1.0,
+"texture": SubResource( 14 )
+}, {
+"duration": 1.0,
+"texture": SubResource( 15 )
+}],
 "loop": true,
 "name": "Heart",
 "speed": 5.0
@@ -160,7 +190,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, 2 )
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource( 2 )
 hframes = 2
 frame = 1
@@ -169,21 +199,21 @@ frame = 1
 anims/Close = SubResource( 3 )
 anims/Open = SubResource( 4 )
 
-[node name="Gem" type="AnimatedSprite" parent="."]
+[node name="Gem" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2( 0, -11 )
-frames = SubResource( 10 )
+sprite_frames = SubResource( 10 )
 animation = "Gem"
 frame = 3
-playing = true
+autoplay = "Gem"
 
-[node name="Heart" type="AnimatedSprite" parent="."]
+[node name="Heart" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2( 0, -11 )
-frames = SubResource( 16 )
+sprite_frames = SubResource( 16 )
 animation = "Heart"
 frame = 2
-playing = true
+autoplay = "Heart"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

@@ -1,0 +1,5 @@
+# Godot 4 cache and local files
+.godot/
+.DS_Store
+*.tmp
+.omc/

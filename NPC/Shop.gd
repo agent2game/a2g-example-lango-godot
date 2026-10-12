@@ -12,7 +12,7 @@ signal buying
 
 func _ready():
 # warning-ignore:return_value_discarded
-	self.connect("buying", Global,"_on_update_status")
+	self.connect("buying", Callable(Global, "_on_update_status"))
 
 func change_menu_color():
 	$Buy.color = Color("#ce8e50")
@@ -29,7 +29,7 @@ func change_menu_color():
 func click():
 	$Buy/ColorRect.color = Color("#c2c160")
 	emit_signal("buying")
-	yield(get_tree().create_timer(0.3),"timeout")
+	await get_tree().create_timer(0.3).timeout
 	$Buy/ColorRect.color = Color("#ffc38b")
 
 ##################### Open Shop ########################
@@ -99,12 +99,12 @@ func _input(_event):
 						else:
 							$Warning/Label.text = "Insufficient gems"
 							$Warning.visible = true
-							yield(get_tree().create_timer(2), "timeout")
+							await get_tree().create_timer(2).timeout
 							$Warning.visible = false
 					else:
 						$Warning/Label.text = "Insufficient space"
 						$Warning.visible = true
-						yield(get_tree().create_timer(2), "timeout")
+						await get_tree().create_timer(2).timeout
 						$Warning.visible = false
 
 				if Item == "Repellent Potion":
@@ -116,12 +116,12 @@ func _input(_event):
 						else:
 							$Warning/Label.text = "Insufficient gems"
 							$Warning.visible = true
-							yield(get_tree().create_timer(2), "timeout")
+							await get_tree().create_timer(2).timeout
 							$Warning.visible = false
 					else:
 						$Warning/Label.text = "Insufficient space"
 						$Warning.visible = true
-						yield(get_tree().create_timer(2), "timeout")
+						await get_tree().create_timer(2).timeout
 						$Warning.visible = false
 
 				if Item == "Mana Potion":
@@ -133,12 +133,12 @@ func _input(_event):
 						else:
 							$Warning/Label.text = "Insufficient gems"
 							$Warning.visible = true
-							yield(get_tree().create_timer(2), "timeout")
+							await get_tree().create_timer(2).timeout
 							$Warning.visible = false
 					else:
 						$Warning/Label.text = "Insufficient space"
 						$Warning.visible = true
-						yield(get_tree().create_timer(2), "timeout")
+						await get_tree().create_timer(2).timeout
 						$Warning.visible = false
 
 				if Item == "Bomb":
@@ -150,12 +150,12 @@ func _input(_event):
 						else:
 							$Warning/Label.text = "Insufficient gems"
 							$Warning.visible = true
-							yield(get_tree().create_timer(2), "timeout")
+							await get_tree().create_timer(2).timeout
 							$Warning.visible = false
 					else:
 						$Warning/Label.text = "Insufficient space"
 						$Warning.visible = true
-						yield(get_tree().create_timer(2), "timeout")
+						await get_tree().create_timer(2).timeout
 						$Warning.visible = false
 
 				if Item == "Axe":
@@ -167,12 +167,12 @@ func _input(_event):
 						else:
 							$Warning/Label.text = "Insufficient gems"
 							$Warning.visible = true
-							yield(get_tree().create_timer(2), "timeout")
+							await get_tree().create_timer(2).timeout
 							$Warning.visible = false
 					else:
 						$Warning/Label.text = "Already equipped"
 						$Warning.visible = true
-						yield(get_tree().create_timer(2), "timeout")
+						await get_tree().create_timer(2).timeout
 						$Warning.visible = false
 
 				if Item == "Pickaxe":
@@ -184,12 +184,12 @@ func _input(_event):
 						else:
 							$Warning/Label.text = "Insufficient gems"
 							$Warning.visible = true
-							yield(get_tree().create_timer(2), "timeout")
+							await get_tree().create_timer(2).timeout
 							$Warning.visible = false
 					else:
 						$Warning/Label.text = "Already equipped"
 						$Warning.visible = true
-						yield(get_tree().create_timer(2), "timeout")
+						await get_tree().create_timer(2).timeout
 						$Warning.visible = false
 
 				if Item == "Bandana":
@@ -201,12 +201,12 @@ func _input(_event):
 						else:
 							$Warning/Label.text = "Insufficient gems"
 							$Warning.visible = true
-							yield(get_tree().create_timer(2), "timeout")
+							await get_tree().create_timer(2).timeout
 							$Warning.visible = false
 					else:
 						$Warning/Label.text = "Already equipped"
 						$Warning.visible = true
-						yield(get_tree().create_timer(2), "timeout")
+						await get_tree().create_timer(2).timeout
 						$Warning.visible = false
 
 				if Item == "Cacilda":
@@ -218,12 +218,12 @@ func _input(_event):
 						else:
 							$Warning/Label.text = "Insufficient gems"
 							$Warning.visible = true
-							yield(get_tree().create_timer(2), "timeout")
+							await get_tree().create_timer(2).timeout
 							$Warning.visible = false
 					else:
 						$Warning/Label.text = "Already equipped"
 						$Warning.visible = true
-						yield(get_tree().create_timer(2), "timeout")
+						await get_tree().create_timer(2).timeout
 						$Warning.visible = false
 
 				if Item == "Swon's Saber":
@@ -235,12 +235,12 @@ func _input(_event):
 						else:
 							$Warning/Label.text = "Insufficient gems"
 							$Warning.visible = true
-							yield(get_tree().create_timer(2), "timeout")
+							await get_tree().create_timer(2).timeout
 							$Warning.visible = false
 					else:
 						$Warning/Label.text = "Already equipped"
 						$Warning.visible = true
-						yield(get_tree().create_timer(2), "timeout")
+						await get_tree().create_timer(2).timeout
 						$Warning.visible = false
 
 

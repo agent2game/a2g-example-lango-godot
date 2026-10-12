@@ -8,296 +8,296 @@
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=7]
 [ext_resource path="res://World/Sign.tscn" type="PackedScene" id=8]
-[ext_resource path="res://World/GrassBackground1.png" type="Texture" id=9]
-[ext_resource path="res://World/CliffTileset.png" type="Texture" id=10]
-[ext_resource path="res://World/CaveTileset.png" type="Texture" id=11]
-[ext_resource path="res://World/DirtTileset.png" type="Texture" id=12]
+[ext_resource path="res://World/GrassBackground1.png" type="Texture2D" id=9]
+[ext_resource path="res://World/CliffTileset.png" type="Texture2D" id=10]
+[ext_resource path="res://World/CaveTileset.png" type="Texture2D" id=11]
+[ext_resource path="res://World/DirtTileset.png" type="Texture2D" id=12]
 [ext_resource path="res://Levels/Levels.gd" type="Script" id=13]
 [ext_resource path="res://World/Rock.tscn" type="PackedScene" id=14]
 
-[sub_resource type="StreamTexture" id=1]
+[sub_resource type="CompressedTexture2D" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=11]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=12]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=13]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=14]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=15]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=16]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=17]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=18]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=19]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=20]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=21]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=22]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=23]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=24]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=25]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=26]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=27]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=28]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=29]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=30]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=31]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=32]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=33]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=34]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=35]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=36]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=37]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=38]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=39]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=40]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=41]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=42]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=43]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=44]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=45]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=46]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=47]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=48]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=49]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=50]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=51]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=52]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=53]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=54]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=55]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=56]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=57]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=58]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=59]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=60]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=61]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=62]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=63]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=64]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=65]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=66]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=67]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=68]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=69]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=70]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=71]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=72]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=73]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=74]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=75]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=76]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=77]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=78]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=79]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=80]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=81]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=82]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=83]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=84]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=85]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=86]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=87]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=88]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=89]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=90]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=91]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=92]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=93]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=94]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=95]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PackedVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="TileSet" id=96]
 0/name = "CliffTileset.png 0"
@@ -941,9 +941,8 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 [node name="Level5" type="Node2D"]
 script = ExtResource( 13 )
 
-[node name="Grass" type="Sprite" parent="."]
+[node name="Grass" type="Sprite2D" parent="."]
 texture = ExtResource( 9 )
-normal_map = SubResource( 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 640, 360 )
@@ -952,26 +951,25 @@ region_rect = Rect2( 0, 0, 640, 360 )
 tile_set = SubResource( 96 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 1, -65535, 0, 1, -65534, 0, 1, -65533, 0, 1, -65532, 0, 1, -65531, 0, 1, -65530, 0, 1, -65529, 0, 1, -65528, 0, 1, -65527, 0, 1, -65526, 0, 1, -65525, 0, 1, -65524, 0, 1, -65523, 0, 1, -65522, 0, 1, -65521, 0, 1, -65520, 0, 1, -65519, 0, 1, -65518, 0, 1, -65517, 0, 1, -65516, 0, 2, 65535, 0, 65536, 0, 0, 65541, 1, 0, 131073, 2, 0, 131073, 3, 0, 131073, 4, 0, 131073, 5, 0, 131073, 6, 0, 131073, 7, 0, 131073, 8, 0, 131073, 9, 0, 131073, 10, 0, 131073, 11, 0, 131073, 12, 0, 131073, 13, 0, 131073, 14, 0, 131073, 15, 0, 131073, 16, 0, 131073, 17, 0, 65542, 18, 0, 65537, 19, 0, 65537, 20, 0, 65538, 131071, 0, 65536, 65536, 0, 65538, 65553, 0, 131072, 65554, 0, 65542, 65555, 0, 65537, 65556, 0, 65538, 196607, 0, 65536, 131072, 0, 65538, 131090, 0, 65536, 131091, 0, 65537, 131092, 0, 65538, 262143, 0, 65536, 196608, 0, 131077, 196609, 0, 2, 196626, 0, 131072, 196627, 0, 65542, 196628, 0, 65538, 327679, 0, 65536, 262144, 0, 65537, 262145, 0, 65538, 262163, 0, 131072, 262164, 0, 131074, 393215, 0, 65536, 327680, 0, 65541, 327681, 0, 131074, 458751, 0, 65536, 393216, 0, 65538, 393234, 0, 0, 393235, 0, 1, 393236, 0, 2, 524287, 0, 65536, 458752, 0, 65538, 458770, 0, 131072, 458771, 0, 65542, 458772, 0, 65538, 589823, 0, 65536, 524288, 0, 131077, 524289, 0, 2, 524307, 0, 65536, 524308, 0, 65538, 655359, 0, 65536, 589824, 0, 65537, 589825, 0, 65538, 589843, 0, 65536, 589844, 0, 65538, 720895, 0, 65536, 655360, 0, 65537, 655361, 0, 131077, 655362, 0, 2, 655378, 0, 0, 655379, 0, 131078, 655380, 0, 65538, 786431, 0, 131072, 720896, 0, 131073, 720897, 0, 131073, 720898, 0, 196613, 720899, 0, 196609, 720900, 0, 196609, 720901, 0, 196609, 720902, 0, 196609, 720903, 0, 196609, 720904, 0, 196609, 720905, 0, 196609, 720906, 0, 196609, 720907, 0, 196609, 720908, 0, 196609, 720909, 0, 196609, 720910, 0, 196609, 720911, 0, 196609, 720912, 0, 196609, 720913, 0, 196609, 720914, 0, 196614, 720915, 0, 131073, 720916, 0, 131074 )
+tile_data = PackedInt32Array( -1, 0, 0, -65536, 0, 1, -65535, 0, 1, -65534, 0, 1, -65533, 0, 1, -65532, 0, 1, -65531, 0, 1, -65530, 0, 1, -65529, 0, 1, -65528, 0, 1, -65527, 0, 1, -65526, 0, 1, -65525, 0, 1, -65524, 0, 1, -65523, 0, 1, -65522, 0, 1, -65521, 0, 1, -65520, 0, 1, -65519, 0, 1, -65518, 0, 1, -65517, 0, 1, -65516, 0, 2, 65535, 0, 65536, 0, 0, 65541, 1, 0, 131073, 2, 0, 131073, 3, 0, 131073, 4, 0, 131073, 5, 0, 131073, 6, 0, 131073, 7, 0, 131073, 8, 0, 131073, 9, 0, 131073, 10, 0, 131073, 11, 0, 131073, 12, 0, 131073, 13, 0, 131073, 14, 0, 131073, 15, 0, 131073, 16, 0, 131073, 17, 0, 65542, 18, 0, 65537, 19, 0, 65537, 20, 0, 65538, 131071, 0, 65536, 65536, 0, 65538, 65553, 0, 131072, 65554, 0, 65542, 65555, 0, 65537, 65556, 0, 65538, 196607, 0, 65536, 131072, 0, 65538, 131090, 0, 65536, 131091, 0, 65537, 131092, 0, 65538, 262143, 0, 65536, 196608, 0, 131077, 196609, 0, 2, 196626, 0, 131072, 196627, 0, 65542, 196628, 0, 65538, 327679, 0, 65536, 262144, 0, 65537, 262145, 0, 65538, 262163, 0, 131072, 262164, 0, 131074, 393215, 0, 65536, 327680, 0, 65541, 327681, 0, 131074, 458751, 0, 65536, 393216, 0, 65538, 393234, 0, 0, 393235, 0, 1, 393236, 0, 2, 524287, 0, 65536, 458752, 0, 65538, 458770, 0, 131072, 458771, 0, 65542, 458772, 0, 65538, 589823, 0, 65536, 524288, 0, 131077, 524289, 0, 2, 524307, 0, 65536, 524308, 0, 65538, 655359, 0, 65536, 589824, 0, 65537, 589825, 0, 65538, 589843, 0, 65536, 589844, 0, 65538, 720895, 0, 65536, 655360, 0, 65537, 655361, 0, 131077, 655362, 0, 2, 655378, 0, 0, 655379, 0, 131078, 655380, 0, 65538, 786431, 0, 131072, 720896, 0, 131073, 720897, 0, 131073, 720898, 0, 196613, 720899, 0, 196609, 720900, 0, 196609, 720901, 0, 196609, 720902, 0, 196609, 720903, 0, 196609, 720904, 0, 196609, 720905, 0, 196609, 720906, 0, 196609, 720907, 0, 196609, 720908, 0, 196609, 720909, 0, 196609, 720910, 0, 196609, 720911, 0, 196609, 720912, 0, 196609, 720913, 0, 196609, 720914, 0, 196614, 720915, 0, 131073, 720916, 0, 131074 )
 
 [node name="Dirt" type="TileMap" parent="."]
 tile_set = SubResource( 97 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 327708, 0, 0, 327709, 0, 1, 327710, 0, 1, 327711, 0, 1, 327712, 0, 1, 327713, 0, 2, 393244, 0, 65536, 393245, 0, 65537, 393246, 0, 65537, 393247, 0, 65537, 393248, 0, 65537, 393249, 0, 65538, 458780, 0, 65536, 458781, 0, 65537, 458782, 0, 65537, 458783, 0, 65537, 458784, 0, 65537, 458785, 0, 65538, 524316, 0, 131072, 524317, 0, 65542, 524318, 0, 65537, 524319, 0, 65537, 524320, 0, 65537, 524321, 0, 65538, 589853, 0, 131072, 589854, 0, 65542, 589855, 0, 65537, 589856, 0, 65537, 589857, 0, 131077, 589858, 0, 2, 655390, 0, 131072, 655391, 0, 65542, 655392, 0, 65537, 655393, 0, 65537, 655394, 0, 131077, 655395, 0, 1, 655396, 0, 1, 655397, 0, 1, 655398, 0, 1, 655399, 0, 1, 655400, 0, 1, 655401, 0, 2, 720927, 0, 131072, 720928, 0, 131073, 720929, 0, 131073, 720930, 0, 131073, 720931, 0, 131073, 720932, 0, 131073, 720933, 0, 131073, 720934, 0, 131073, 720935, 0, 131073, 720936, 0, 131073, 720937, 0, 131074 )
+tile_data = PackedInt32Array( 327708, 0, 0, 327709, 0, 1, 327710, 0, 1, 327711, 0, 1, 327712, 0, 1, 327713, 0, 2, 393244, 0, 65536, 393245, 0, 65537, 393246, 0, 65537, 393247, 0, 65537, 393248, 0, 65537, 393249, 0, 65538, 458780, 0, 65536, 458781, 0, 65537, 458782, 0, 65537, 458783, 0, 65537, 458784, 0, 65537, 458785, 0, 65538, 524316, 0, 131072, 524317, 0, 65542, 524318, 0, 65537, 524319, 0, 65537, 524320, 0, 65537, 524321, 0, 65538, 589853, 0, 131072, 589854, 0, 65542, 589855, 0, 65537, 589856, 0, 65537, 589857, 0, 131077, 589858, 0, 2, 655390, 0, 131072, 655391, 0, 65542, 655392, 0, 65537, 655393, 0, 65537, 655394, 0, 131077, 655395, 0, 1, 655396, 0, 1, 655397, 0, 1, 655398, 0, 1, 655399, 0, 1, 655400, 0, 1, 655401, 0, 2, 720927, 0, 131072, 720928, 0, 131073, 720929, 0, 131073, 720930, 0, 131073, 720931, 0, 131073, 720932, 0, 131073, 720933, 0, 131073, 720934, 0, 131073, 720935, 0, 131073, 720936, 0, 131073, 720937, 0, 131074 )
 
 [node name="PandaShop" parent="." instance=ExtResource( 5 )]
 position = Vector2( 496, 64 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 496, 144 )
-current = true
 limit_left = 0
 limit_top = 0
 limit_right = 640
 limit_bottom = 360
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="Sign" parent="." instance=ExtResource( 8 )]
 
@@ -979,134 +977,134 @@ drag_margin_v_enabled = true
 position = Vector2( 464, 114.131 )
 
 [node name="Popup" parent="Sign" index="1"]
-margin_left = 400.0
-margin_top = 76.0
-margin_right = 527.0
-margin_bottom = 100.0
+offset_left = 400.0
+offset_top = 76.0
+offset_right = 527.0
+offset_bottom = 100.0
 
 [node name="ColorRect" parent="Sign/Popup" index="0"]
-margin_right = 127.0
+offset_right = 127.0
 
 [node name="ColorRect2" parent="Sign/Popup/ColorRect" index="0"]
-margin_right = 125.0
+offset_right = 125.0
 
 [node name="Label" parent="Sign/Popup/ColorRect" index="1"]
-margin_right = 127.0
+offset_right = 127.0
 text = "Panda Shop"
 
-[node name="YSort" type="YSort" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="Player" parent="YSort" instance=ExtResource( 2 )]
+[node name="Player" parent="Node2D" instance=ExtResource( 2 )]
 position = Vector2( 496, 144 )
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node2D/Player"]
 remote_path = NodePath("../../../Camera2D")
 
-[node name="Trees" type="YSort" parent="YSort"]
+[node name="Trees" type="Node2D" parent="Node2D"]
 
-[node name="Tree2" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree2" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 96, 88 )
 
-[node name="Tree3" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree3" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 96, 152 )
 
-[node name="Tree4" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree4" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 96, 218 )
 
-[node name="Tree5" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree5" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 94.7695, 280 )
 
-[node name="Tree7" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree7" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 161.23, 88 )
 
-[node name="Tree8" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree8" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 161.23, 152 )
 
-[node name="Tree9" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree9" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 161.23, 218 )
 
-[node name="Tree10" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree10" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 160, 280 )
 
-[node name="Tree12" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree12" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 228.23, 88 )
 
-[node name="Tree13" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree13" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 228.23, 152 )
 
-[node name="Tree14" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree14" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 228.23, 218 )
 
-[node name="Tree15" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree15" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 227, 280 )
 
-[node name="Tree17" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree17" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 289.23, 88 )
 
-[node name="Tree18" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree18" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 289.23, 152 )
 
-[node name="Tree19" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree19" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 289.23, 218 )
 
-[node name="Tree20" parent="YSort/Trees" instance=ExtResource( 7 )]
+[node name="Tree20" parent="Node2D/Trees" instance=ExtResource( 7 )]
 position = Vector2( 288, 280 )
 
-[node name="Bees" type="YSort" parent="YSort"]
+[node name="Bees" type="Node2D" parent="Node2D"]
 
-[node name="Bee" parent="YSort/Bees" instance=ExtResource( 4 )]
+[node name="Bee" parent="Node2D/Bees" instance=ExtResource( 4 )]
 position = Vector2( 227, 128 )
 
-[node name="Bee2" parent="YSort/Bees" instance=ExtResource( 4 )]
+[node name="Bee2" parent="Node2D/Bees" instance=ExtResource( 4 )]
 position = Vector2( 212.23, 273 )
 
-[node name="Bee3" parent="YSort/Bees" instance=ExtResource( 4 )]
+[node name="Bee3" parent="Node2D/Bees" instance=ExtResource( 4 )]
 position = Vector2( 128, 92 )
 
-[node name="Bee4" parent="YSort/Bees" instance=ExtResource( 4 )]
+[node name="Bee4" parent="Node2D/Bees" instance=ExtResource( 4 )]
 position = Vector2( 104, 310.482 )
 
-[node name="Bee7" parent="YSort/Bees" instance=ExtResource( 4 )]
+[node name="Bee7" parent="Node2D/Bees" instance=ExtResource( 4 )]
 position = Vector2( 312, 194 )
 
-[node name="Bee5" parent="YSort/Bees" instance=ExtResource( 4 )]
+[node name="Bee5" parent="Node2D/Bees" instance=ExtResource( 4 )]
 position = Vector2( 81.7695, 192 )
 
-[node name="Grasses" type="YSort" parent="YSort"]
+[node name="Grasses" type="Node2D" parent="Node2D"]
 
-[node name="Grass" parent="YSort/Grasses" instance=ExtResource( 6 )]
+[node name="Grass" parent="Node2D/Grasses" instance=ExtResource( 6 )]
 position = Vector2( 592, 304 )
 
-[node name="Grass3" parent="YSort/Grasses" instance=ExtResource( 6 )]
+[node name="Grass3" parent="Node2D/Grasses" instance=ExtResource( 6 )]
 position = Vector2( 592, 266.131 )
 
-[node name="Grass2" parent="YSort/Grasses" instance=ExtResource( 6 )]
+[node name="Grass2" parent="Node2D/Grasses" instance=ExtResource( 6 )]
 position = Vector2( 592, 142 )
 
-[node name="Bushes" type="YSort" parent="YSort"]
+[node name="Bushes" type="Node2D" parent="Node2D"]
 
-[node name="Bush" parent="YSort/Bushes" instance=ExtResource( 3 )]
+[node name="Bush" parent="Node2D/Bushes" instance=ExtResource( 3 )]
 position = Vector2( 560, 110 )
 
-[node name="Rocks" type="YSort" parent="YSort"]
+[node name="Rocks" type="Node2D" parent="Node2D"]
 
-[node name="Rock" parent="YSort/Rocks" instance=ExtResource( 14 )]
+[node name="Rock" parent="Node2D/Rocks" instance=ExtResource( 14 )]
 position = Vector2( 336, 328 )
 
-[node name="Rock2" parent="YSort/Rocks" instance=ExtResource( 14 )]
+[node name="Rock2" parent="Node2D/Rocks" instance=ExtResource( 14 )]
 position = Vector2( 336, 72 )
 
-[node name="Rock3" parent="YSort/Rocks" instance=ExtResource( 14 )]
+[node name="Rock3" parent="Node2D/Rocks" instance=ExtResource( 14 )]
 position = Vector2( 440, 328 )
 
 [node name="Level4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 664, 176 )
 rotation = 1.5708
 
-[node name="Level4Pos" type="Position2D" parent="."]
+[node name="Level4Pos" type="Marker2D" parent="."]
 position = Vector2( 648, 176 )
 
-[node name="PandaShopPos" type="Position2D" parent="."]
+[node name="PandaShopPos" type="Marker2D" parent="."]
 position = Vector2( 496, 144 )
 
 [editable path="Sign"]
