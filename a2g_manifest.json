@@ -1,0 +1,167 @@
+{
+  "world": "Lango is a top-down 2D action RPG. The player explores levels and fights with melee weapons or a ranged form. Hostile creatures (bees, bats and bosses) damage the player only by body contact; they have no ranged attacks. The player can drink a repellent that hides them from enemies. Health is given as fractions (0..1) so actors with different maximum HP can be compared. Distances are in pixels.",
+  "world_fields": {
+    "player_hp_fraction": "number",
+    "repellent": "boolean"
+  },
+  "entity_types": {
+    "bee": {
+      "description": "Small, fragile swarm insect: 3 HP, one player hit removes a third (hp_fraction 1.0, 0.667, 0.333); each contact costs the player one heart. allies_near_player counts other bees fighting the player (within 140 px of the player). Only those count: ignore bees elsewhere in the level and earlier decisions; re-check the rules every time. Rules, first match wins, for a bee that sees the player: 1) Player at 0.4 HP or less: attack. 2) Bee at full HP: attack, even alone. 3) Player above 0.6 HP: a bee at 0.667 attacks only with allies_near_player 1 or more, a bee at 0.333 only with 2 or more; otherwise it keeps its distance or flees. 4) Otherwise a wounded bee attacks with allies_near_player 1 or more, else keeps its distance or flees.",
+      "fields": {
+        "hp_fraction": "number",
+        "distance_to_player": "number",
+        "sees_player": "boolean",
+        "current_action": [
+          "idle",
+          "wander",
+          "chase",
+          "flee"
+        ],
+        "allies_near": "number",
+        "allies_near_player": "number"
+      },
+      "actions": {
+        "chase": "Move toward the player to hit them by contact",
+        "flee": "Move directly away from the player to preserve health",
+        "idle": "Stop and hold position",
+        "wander": "Patrol around the home area without engaging"
+      },
+      "decision_ttl_ms": 12000,
+      "perception_radius": 120,
+      "events": {
+        "player_spotted": "The player just came into view",
+        "player_lost": "The player just went out of view",
+        "hit": "This creature was just hit by the player",
+        "allies_gathered": "Other bees just gathered around this bee (allies_near rose to 2 or more)"
+      },
+      "refresh_ms": 8000,
+      "max_input_tokens": 1500,
+      "cache": {
+        "key": [
+          "hp_fraction",
+          "distance_to_player",
+          "sees_player",
+          "allies_near",
+          "allies_near_player",
+          "world.player_hp_fraction",
+          "parent.action"
+        ],
+        "buckets": {
+          "hp_fraction": [
+            0.34,
+            0.67
+          ],
+          "allies_near": [
+            1,
+            3
+          ],
+          "world.player_hp_fraction": [
+            0.25,
+            0.5
+          ],
+          "allies_near_player": [
+            1,
+            2
+          ],
+          "distance_to_player": [
+            40,
+            80,
+            140
+          ]
+        },
+        "ttl_ms": 10000
+      }
+    },
+    "bat": {
+      "description": "Agile cave hunter (6 HP). Opportunistic: attacks when the player is weakened or busy with other creatures. Backs off when wounded and facing the player alone, or when the player has already killed most creatures in the level. allies_near counts other bats within 120 px of this bat; allies_near_player counts other bats within 140 px of the player.",
+      "fields": {
+        "hp_fraction": "number",
+        "distance_to_player": "number",
+        "sees_player": "boolean",
+        "current_action": [
+          "idle",
+          "wander",
+          "chase",
+          "flee"
+        ],
+        "allies_near": "number",
+        "allies_near_player": "number"
+      },
+      "actions": {
+        "chase": "Move toward the player to hit them by contact",
+        "flee": "Move directly away from the player to preserve health",
+        "idle": "Stop and hold position",
+        "wander": "Patrol around the home area without engaging"
+      },
+      "decision_ttl_ms": 12000,
+      "perception_radius": 120,
+      "events": {
+        "player_spotted": "The player just came into view",
+        "player_lost": "The player just went out of view",
+        "hit": "This creature was just hit by the player"
+      },
+      "refresh_ms": 8000,
+      "max_input_tokens": 1500
+    },
+    "boss": {
+      "description": "Large, tough guardian (50 HP) that keeps spawning bees. Aggressive while its bees are near the player; retreats briefly to recover when very low on health.",
+      "fields": {
+        "hp_fraction": "number",
+        "distance_to_player": "number",
+        "sees_player": "boolean",
+        "current_action": [
+          "idle",
+          "wander",
+          "chase",
+          "flee"
+        ]
+      },
+      "actions": {
+        "chase": "Move toward the player to hit them by contact",
+        "flee": "Move directly away from the player to preserve health",
+        "idle": "Stop and hold position",
+        "wander": "Patrol around the home area without engaging"
+      },
+      "decision_ttl_ms": 12000,
+      "perception_radius": 160,
+      "events": {
+        "player_spotted": "The player just came into view",
+        "player_lost": "The player just went out of view",
+        "hit": "This creature was just hit by the player"
+      },
+      "refresh_ms": 8000,
+      "max_input_tokens": 1500
+    },
+    "player": {
+      "description": "The human-controlled hero. Not controlled by A2G; reported so creatures know where it is, how healthy it is and what it is doing.",
+      "fields": {
+        "hp_fraction": "number",
+        "action": [
+          "move",
+          "roll",
+          "attack",
+          "transition"
+        ]
+      },
+      "actions": {},
+      "perception_radius": 140
+    }
+  },
+  "scopes": {
+    "overworld": {
+      "text": "Open outdoor levels: meadows, paths and villages. Creatures have room to retreat, regroup and return to their home area."
+    },
+    "caves": {
+      "text": "Narrow, dark caves where bats live. Corridors are tight, so fleeing creatures get cornered quickly."
+    },
+    "dungeon": {
+      "text": "Dungeon rooms connected by corridors. Creatures here guard their rooms rather than wandering far."
+    }
+  },
+  "profiles": {
+    "queen_bee": {
+      "type": "boss",
+      "text": "The queen of the hive: old, cunning and protective of her swarm. She lets her bees take the first hits and retreats to recover rather than die."
+    }
+  }
+}
