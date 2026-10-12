@@ -7,7 +7,7 @@ The original Godot 3 code is kept in the [`godot3`](../../tree/godot3) branch.
 ## What A2G adds
 
 - `a2g_manifest.json`: the world, scopes per level type, the boss profile, entity types, events and cache rules.
-- `addons/a2g/`: the [A2G SDK for Godot](https://github.com/agent2game/a2g-sdk-godot) `v0.1.0`, vendored as-is (game-agnostic). Update it with `scripts/update-a2g-sdk.sh <tag>`.
+- `addons/a2g/`: the [A2G SDK for Godot](https://github.com/agent2game/a2g-sdk-godot) `v0.1.1`, vendored as-is (game-agnostic). Update it with `scripts/update-a2g-sdk.sh <tag>`.
 - `A2G/LangoA2G.gd`: the Lango adapter (what enemies observe, which actions are legal, how to run them).
 - One `A2G.execute(self, delta)` call at the top of each enemy's physics step; the original AI runs whenever it returns `false`.
 - `Debug/`: an in-game debug panel and enemy labels, plus headless tests.
