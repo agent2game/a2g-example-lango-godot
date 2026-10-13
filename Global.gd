@@ -59,7 +59,30 @@ signal repellent_time
 signal update_status
 
 ###################################################################
+## Quit through quit_game() so the scene is freed before the engine shuts down. If Godot frees it during
+## shutdown instead, audio playbacks (AnimationPlayer audio tracks, AudioStreamPlayers) are reported as
+## leaked ObjectDB instances and resources still in use.
+func quit_game():
+	_stop_audio(get_tree().root)  # includes the music players of this autoload, which is not freed here
+	var scene = get_tree().current_scene
+	if scene:
+		scene.queue_free()
+	# The audio thread releases stopped and orphaned playbacks asynchronously; give it a moment.
+	await get_tree().create_timer(0.1, true, false, true).timeout
+	get_tree().quit()
+
+func _stop_audio(node: Node):
+	if node is AudioStreamPlayer or node is AudioStreamPlayer2D or node is AudioStreamPlayer3D:
+		node.stop()
+	for child in node.get_children():
+		_stop_audio(child)
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		quit_game()
+
 func _ready():
+	get_tree().set_auto_accept_quit(false)
 	self.health = max_health
 
 ######################################################## Health ###

@@ -58,8 +58,8 @@ func _ready():
 	summary = make_label()
 	contents.add_child(summary)
 	mode_selector = OptionButton.new()
-	mode_selector.add_item("FSM — original behavior")
-	mode_selector.add_item("AI — OpenAI Decisions")
+	mode_selector.add_item("FSM: original behavior")
+	mode_selector.add_item("AI: OpenAI Decisions")
 	mode_selector.item_selected.connect(func(index): A2G.set_ai_enabled(index == 1))
 	contents.add_child(mode_selector)
 	labels_toggle = CheckButton.new()
@@ -234,7 +234,7 @@ func _process(delta):
 		if update_text:
 			var player = enemy.playerDetectionZone.player
 			var detected = is_instance_valid(player) and not Global.repellent
-			var distance = "%.0f px" % enemy.global_position.distance_to(player_node.global_position) if is_instance_valid(player_node) else "—"
+			var distance = "%.0f px" % enemy.global_position.distance_to(player_node.global_position) if is_instance_valid(player_node) else "-"
 			var state = state_name(enemy.state)
 			var state_color = STATE_COLORS[enemy.state] if enemy.state >= 0 and enemy.state < STATE_COLORS.size() else "ffffff"
 			var animation = str(enemy.sprite.animation)
@@ -284,17 +284,17 @@ func _process(delta):
 	if update_text:
 		var mode_color = "83efa3" if ai_count > 0 else "ffd166"
 		var ai_status = "[color=#%s][b]AI: %d active / %d fallback[/b][/color] | %d pending" % [mode_color, ai_count, fallback_count, A2G.pending_count()]
-		mode_banner.text = ai_status if A2G.ai_enabled else "[color=#8bd5ff][b]FSM — AI OFF[/b][/color]"
+		mode_banner.text = ai_status if A2G.ai_enabled else "[color=#8bd5ff][b]FSM: AI OFF[/b][/color]"
 		mode_banner.text += "\nA2G service: " + A2G.service_status + (" | session ok" if A2G.session_ready else " | no session")
 		if A2G.ai_enabled:
 			mode_banner.text += " | OpenAI reply: %.0f s ago" % ((Time.get_ticks_msec() - A2G.last_ai_reply_ms) / 1000.0) if A2G.last_ai_reply_ms >= 0 else " | OpenAI: awaiting first reply"
 		var scene = get_tree().current_scene
-		var player_state = "—"
+		var player_state = "-"
 		var player_speed = 0.0
 		if is_instance_valid(player_node):
 			player_state = ["MOVE", "ROLL", "ATTACK", "TRANSITION"][player_node.state]
 			player_speed = player_node.velocity.length()
-		summary.text = "DEBUG  [~ close]\nScene: %s\nPlayer HP: %s/%s\nPlayer state: %s\nPlayer speed: %.1f px/s\nRepellent: %s\nEnemies: %d\nBees: %d  Bats: %d  Bosses: %d\nSwitch FSM / AI below" % [scene.name if scene else "—", ("%.2f" % Global.health), ("%.2f" % Global.max_health), player_state, player_speed, "on" if Global.repellent else "off", counts.Bee + counts.Bat + counts.Boss, counts.Bee, counts.Bat, counts.Boss]
+		summary.text = "DEBUG  [~ close]\nScene: %s\nPlayer HP: %s/%s\nPlayer state: %s\nPlayer speed: %.1f px/s\nRepellent: %s\nEnemies: %d\nBees: %d  Bats: %d  Bosses: %d\nSwitch FSM / AI below" % [scene.name if scene else "-", ("%.2f" % Global.health), ("%.2f" % Global.max_health), player_state, player_speed, "on" if Global.repellent else "off", counts.Bee + counts.Bat + counts.Boss, counts.Bee, counts.Bat, counts.Boss]
 
 func overlaps_cards(candidate: Rect2, occupied: Array[Rect2]) -> bool:
 	for other in occupied:

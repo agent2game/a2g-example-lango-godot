@@ -49,4 +49,4 @@ func run():
 	scene.queue_free()
 	await process_frame
 	print("PASS: fractional damage, HP bar, god mode on/off, fractional death, normal weapon damage")
-	quit()
+	root.get_node("Global").quit_game()  # stops sounds first, so the audio server can release them

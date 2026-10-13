@@ -45,4 +45,4 @@ func _input(_event):
 				Global.load_game()
 			2:
 				# Quit game
-				get_tree().quit()
+				Global.quit_game()
