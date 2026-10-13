@@ -17,7 +17,7 @@ A full walkthrough with messages on the wire is on [agent2game.org/examples/lang
 ## Run
 
 1. Open the project in Godot 4.7.
-2. Start an A2G decision service on `http://127.0.0.1:8787` (the reference service is not public yet).
+2. Start an A2G decision service on `http://127.0.0.1:8787`, for example the [reference service](https://github.com/agent2game/a2g-service): `docker run -d -p 127.0.0.1:8787:8787 -e OPENAI_API_KEY=... ghcr.io/agent2game/a2g-service:0.1.0`.
 3. Run the game. AI control is off by default; turn it on in the debug panel (`~`) or start with `-- --a2g-ai`.
 
 Without a service the game plays exactly like the original, on its native AI.
